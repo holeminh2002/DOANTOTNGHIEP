@@ -3,6 +3,9 @@ package edu.poly.model;
 import lombok.Data;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +21,7 @@ public class Order implements Serializable {
     Boolean available;
     Boolean confirm;
     Double price;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     @Column(name = "Createdate")
     Date createDate = new Date();

@@ -28,7 +28,6 @@ public class Product implements Serializable {
     Integer quantity;
     @NotNull
     Double price;
-    @NotBlank(message = "About not empty")
     String about;
     @NotNull
     Integer discount;

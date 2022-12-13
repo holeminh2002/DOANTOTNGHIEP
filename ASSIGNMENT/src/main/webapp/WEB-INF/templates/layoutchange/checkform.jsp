@@ -103,7 +103,7 @@
                 </div>
                 <div class="mb-3">
                     <label >Date</label>
-                    <form:input type="text"  placeholder="Date" class="form-control" path="createDate" />
+                    <form:input type="date"  placeholder="Date" class="form-control" path="createDate" />
                     <div class="invalid-feedback">
                         Please enter your shipping address.
                     </div>

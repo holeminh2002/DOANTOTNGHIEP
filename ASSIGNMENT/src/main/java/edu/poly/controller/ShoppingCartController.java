@@ -64,11 +64,11 @@ public class ShoppingCartController {
     public String saveorder(Model model ,@ModelAttribute("item") Order item ){
         oder.save(item);
         Collection<CartItem>  carts = shoppingCartService.getCartItems();
-        Product prd = new Product();
+       
         for(CartItem x : carts){
             OrderDetail items = new OrderDetail();
-//            Product prd = dao.findAllById(x.getId());
-            prd.setId(x.getId());
+            Product prd = dao.findAllById(x.getId());
+//            prd.setId(x.getId());
             items.setQuantity(x.getQuantity());
             items.setOrder(item);
             items.setPrice(x.getPrice());
