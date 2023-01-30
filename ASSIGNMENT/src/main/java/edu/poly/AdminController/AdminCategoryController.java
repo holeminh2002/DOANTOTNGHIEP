@@ -86,4 +86,13 @@ public class AdminCategoryController {
         model.addAttribute("page", page)    ;
         return "layoutChangeAdmin/categoryadmin";
     }
+    
+//    @RequestMapping("/Admin/Category/Reset")
+//    public String Edit(Model model, @RequestParam("p") Optional<Integer> p){
+//        Pageable pageable = PageRequest.of(p.orElse(0), 5);
+//        Page<Category> page = catedao.findAll(pageable);
+//        model.addAttribute("page", page)   ;
+//        return "layoutChangeAdmin/categoryadmin";
+//    }
+
 }

@@ -202,19 +202,19 @@
                                     <div class="card-body">
                                         <form:form action="/Admin/Table/Save" modelAttribute="item" method="post" enctype="multipart/form-data" >
                                             <div class="form-group">
-                                                <label>UserName</label>
+                                                <label>Product ID</label>
                                                 <form:input type="text" class="form-control" path="id" placeholder="ID" />
 
                                             </div>
                                             <div class="form-group">
-                                                <label>Name</label>
+                                                <label>Product Name</label>
                                                 <form:input type="name" class="form-control" path="name"
-                                                            placeholder="Name" />
+                                                            placeholder="Product Name" />
                                                 <form:errors path="name" />
 
                                             </div>
                                             <div class="form-group">
-                                                <label>FullName</label>
+                                                <label>Quantity</label>
                                                 <form:input type="text" class="form-control" path="quantity"
                                                             placeholder="Quantity" />
                                                 <form:errors path="quantity" />
@@ -239,9 +239,9 @@
                                                 <form:errors path="discount" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Email</label>
+                                                <label>Date</label>
                                                 <form:input type="text" class="form-control" path="createDate"
-                                                            placeholder="Enter email" />
+                                                            placeholder="yyyy-mm-dd" />
                                                 <form:errors path="createDate" />
                                             </div>
 

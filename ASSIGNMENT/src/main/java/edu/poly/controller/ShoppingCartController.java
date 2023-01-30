@@ -68,7 +68,7 @@ public class ShoppingCartController {
         for(CartItem x : carts){
             OrderDetail items = new OrderDetail();
             Product prd = dao.findAllById(x.getId());
-//            prd.setId(x.getId());
+            prd.setId(x.getId());
             items.setQuantity(x.getQuantity());
             items.setOrder(item);
             items.setPrice(x.getPrice());
@@ -97,11 +97,11 @@ public class ShoppingCartController {
         shoppingCartService.update(id,quantity);
         return "redirect:/shoppingcart/index";
     }
-//    @RequestMapping("/Checkout/Save")
-//    public String CheckoutAdd(Model model, @ModelAttribute("order") Integer order){
-//
-//        return "redirect:/shoppingcart/index";
-//    }
+    @RequestMapping("/Checkout/Save")
+    public String CheckoutAdd(Model model, @ModelAttribute("order") Integer order){
+
+        return "redirect:/shoppingcart/index";
+    }
 
 
 

@@ -146,7 +146,7 @@
                                     <div class="row">
                                         <div class="create ml-auto mr-auto">
                                             <button type="submit" class="btn btn-primary btn-round" formaction="/Admin/Category/Add">Save</button>
-                                            <button type="submit" class="btn btn-primary btn-round" formaction="/Admin/Category/Update">Update </button>
+                        					
                                         </div>
                                         <div class="update ml-auto mr-auto">
 
@@ -154,6 +154,7 @@
                                     </div>
                                         <h6>${message}</h6>
                                     </form:form>
+                                    <!--<a href="/Admin/Category/Reset">Reset</a>-->
                                 </div>
                             </div>
                         </div>

@@ -55,7 +55,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                         <a class="nav-link" href="/Home/product"><s:message code="lo.mn.ourproduct"/></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Home/about"> <s:message code="lo.mn.about"/></a>
+                        <a class="nav-link" href="/Home/about"> <s:message code="lo.mn.about"/></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Home/contact"><s:message code="lo.mn.contact"/></a>
@@ -74,6 +74,9 @@ https://templatemo.com/tm-546-sixteen-clothing
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <c:if test="${user.admin == true}">
+                            		<a class="dropdown-item" href="/Admin/Views">ADMIN</a>
+                            	</c:if>                          
                                 <a class="dropdown-item" href="/Home/Account/Views/${user.id}">Profile</a>
                                 <a class="dropdown-item" href="/Home/YourCart/${user.id}">Your Order</a>
                                 <a class="dropdown-item" href="/Home/Account/Edit/${user.username}">Edit Profile</a>

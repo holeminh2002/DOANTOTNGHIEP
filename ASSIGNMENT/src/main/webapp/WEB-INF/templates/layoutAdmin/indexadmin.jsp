@@ -57,6 +57,13 @@ Coded by www.creative-tim.com
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
+            
+                <li class=" ">
+                    <a href="/Home/views">
+                        <i class="nc-icon nc-layout-11"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
                 <li class=" ">
                     <a href="/Admin/Views">
                         <i class="nc-icon nc-bank"></i>
@@ -137,7 +144,17 @@ Coded by www.creative-tim.com
     $(document).ready(function() {
         // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
         demo.initChartsPages();
+       
     });
+    window.onload = () => {
+    	if(window.location.pathname.includes('/Admin/Category/Edit/')) {
+    		document.querySelector("#pills-profile-tab").click()
+    	} else if (window.location.pathname.includes('/Admin/Category/Reset')) {
+    		document.querySelector("#pills-profile-tab").click()
+    	} else if(window.location.pathname.includes("/Admin/Tables/Edit/")) {
+    		document.querySelector("#pills-profile-tab").click()
+    	}
+    } 
 </script>
 </body>
 

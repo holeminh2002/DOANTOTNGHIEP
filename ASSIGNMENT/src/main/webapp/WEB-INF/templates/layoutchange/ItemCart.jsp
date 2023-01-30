@@ -52,6 +52,7 @@
                         <th scope="col" class="text-center">Quantity</th>
                         <th scope="col"></th>
                         <th scope="col">Price</th>
+                        <th scope="col">Reduce price</th>
                         <th scope="col" >Total</th>
                         <th> </th>
                     </tr>
@@ -69,6 +70,7 @@
                         </td>
                         <td></td>
                         <td>${item.price}</td>
+                        <td>${item.price * (100 - item.discount) / 100}</td>
                         <td class="text-right"><a class="fa fa-trash" href="/remove/${item.id}"></a>  </td>
                     </tr>
                     </form>

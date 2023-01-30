@@ -32,7 +32,7 @@ public class MailController {
         } else {
             try {
                 Account account = accountDao.findByEmail(email);
-                // mailer.send("a@gmail.com", "Subject_demo", "Body_demo");
+                 mailer.send("a@gmail.com", "Subject_demo", "Body_demo");
                 mailer.queue(email, "Mật khẩu", account.getPassword());
                 model.addAttribute("mess", "Mật khẩu của bạn đã được gửi bên email, hãy đăng nhập ngay!");
                 System.out.println("Đã gửi");

@@ -60,9 +60,9 @@ https://templatemo.com/tm-546-sixteen-clothing
             <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Seach</button>
         </div>
         <ul>
-            <c:forEach var="cate" items="${categories}">
+<!--            <c:forEach var="cate" items="${categories}">
                 <li ><a  href="/Product/add/${cate.id}" >${cate.name}</a></li>
-            </c:forEach>
+            </c:forEach> -->
             <li><a href="/Home/product/sort?field=price" style="color: #f33f3f"> Low to high</a></li>
             <li><a href="/Home/product/sortdesc?field=price" style="color: #f33f3f"> High to low</a></li>
         </ul>
@@ -114,11 +114,11 @@ https://templatemo.com/tm-546-sixteen-clothing
 <%--            </ul>--%>
           <div class="col-md-12">
             <ul class="pages">
-              <li > <a href="/Home/product?p=0">1</a></li>
-              <li ><a href="/Home/product?p=1">2</a></li>
-              <li><a href="/Home/product?p=2">3</a></li>
-              <li><a href="/Home/product?p=3">4</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+            	<li><a href="/Home/product?p=0"><i class="fa fa-angle-double-left"></i></a></li>
+	            <c:forEach var="item" begin="1" end="${page.totalPages}" step="1">
+	            	<li > <a href="/Home/product?p=${item-1}">${item}</a></li>
+				</c:forEach>
+              	<li><a href="/Home/product?p=${page.totalPages - 1}"><i class="fa fa-angle-double-right"></i></a></li>
             </ul>
           </div>
         </div>
