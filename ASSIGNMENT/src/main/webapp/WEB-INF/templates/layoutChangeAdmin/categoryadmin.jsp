@@ -63,42 +63,7 @@
 <%--                            <a href="/Admin/Category?p=${page.number-1}">Previous</a>--%>
 <%--                            <a href="/Admin/Category?p=${page.number+1}">1</a>--%>
 <%--                            <a href="/Admin/Category?p=${page.totalPages-1}">Last</a>--%>
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <li ng-click="first()" class="page-item text-primary"><a
-                                            href="/Admin/Category?p=0" class="page-link" style="font-size: 14px;"><s:message
-                                            code="lo.mn.first" /></a></li>
-                                    <c:choose>
-                                        <c:when test="${page.number>0}">
-                                            <li ng-click="prev()" class="page-item text-primary"><a
-                                                    href="/Admin/Table?p=0${page.number-1}" class="page-link"
-                                                    style="font-size: 14px;"><s:message code="lo.mn.prev" /></a></li>
-                                        </c:when>
-                                        <c:when test="${page.number>-1}">
-                                            <li ng-click="prev()" class="page-item text-primary"><a
-                                                    onclick="return false;" href="/Admin/Category?p=${page.number-1}"
-                                                    class="page-link" style="font-size: 14px;"><s:message
-                                                    code="lo.mn.prev" /></a></li>
-                                        </c:when>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${page.number<page.totalPages-1}">
-                                            <li ng-click="next()" class="page-item text-primary"><a
-                                                    href="/Admin/Category?p=${page.number+1}" class="page-link"
-                                                    style="font-size: 14px;"><s:message code="lo.mn.next" /></a></li>
-                                        </c:when>
-                                        <c:when test="${page.number<page.totalPages}">
-                                            <li ng-click="next()" class="page-item text-primary"><a
-                                                    onclick="return false;" href="/Admin/Table?p=0${page.number+1}"
-                                                    class="page-link" style="font-size: 14px;"><s:message
-                                                    code="lo.mn.next" /></a></li>
-                                        </c:when>
-                                    </c:choose>
-                                    <li ng-click="last()" class="page-item text-primary"><a
-                                            href="/Admin/Category?p=${page.totalPages-1}" class="page-link"
-                                            style="font-size: 14px;"><s:message code="lo.mn.last" /></a></li>
-                                </ul>
-                            </nav>
+                           
                             <%--                        <ul>--%>
                             <%--                            <li>Số thực thể hiện tại: ${page.numberOfElements}</li>--%>
                             <%--                            <li>Trang số: ${page.number}</li>--%>
@@ -106,7 +71,13 @@
                             <%--                            <li>Tổng số thực thể: ${page.totalElements}</li>--%>
                             <%--                            <li>Tổng số trang: ${page.totalPages}</li>--%>
                             <%--                        </ul>--%>
-
+ <ul class="pages" style="padding: 0; list-style-type: none; display: flex; justify-content: center;">
+            	<li style='display: inline-block; padding: 5px;'><a href="/Admin/Category?p=0"><i class="fa fa-angle-double-left"></i></a></li>
+	            <c:forEach var="item" begin="1" end="${page.totalPages}" step="1">
+	            	<li style="padding: 5px; display: inline-block;"> <a href="/Admin/Category?p=${item-1}">${item}</a></li>
+				</c:forEach>
+              	<li  style='display: inline-block; padding: 5px;'><a href="/Admin/Category?p=${page.totalPages - 1}"><i class="fa fa-angle-double-right"></i></a></li>
+            </ul>
                         </div>
 
                     </div></div>
@@ -116,7 +87,7 @@
                                 <h5 class="card-title">Edit Category</h5>
                             </div>
                             <div class="card-body">
-                                <form:form action="/Admin/Category/Add" modelAttribute="item" >
+                                <form:form action="/Admin/Category/Add" modelAttribute="item" class="form">
                                 <div class="row">
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
@@ -146,7 +117,7 @@
                                     <div class="row">
                                         <div class="create ml-auto mr-auto">
                                             <button type="submit" class="btn btn-primary btn-round" formaction="/Admin/Category/Add">Save</button>
-                        					
+											<button type="submit" class="btn btn-primary btn-round" formaction="/Admin/Category/Reset" formmethod="GET">Reset</button>                        					
                                         </div>
                                         <div class="update ml-auto mr-auto">
 
@@ -154,7 +125,7 @@
                                     </div>
                                         <h6>${message}</h6>
                                     </form:form>
-                                    <!--<a href="/Admin/Category/Reset">Reset</a>-->
+                                   <!--	<button type="button" id="reset-button">Reset</button> -->
                                 </div>
                             </div>
                         </div>

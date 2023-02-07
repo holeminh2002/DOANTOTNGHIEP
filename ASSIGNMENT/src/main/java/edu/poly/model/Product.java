@@ -10,6 +10,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Type;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -31,7 +35,8 @@ public class Product implements Serializable {
     String about;
     @NotNull
     Integer discount;
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Type(type = "date")
     @Column(name = "Createdate")
     Date createDate = new Date();
     @NotNull

@@ -107,42 +107,13 @@
 <%--                                <a href="/Admin/Table?p=${page.number-1}">Previous</a>--%>
 <%--                                <a href="/Admin/Table?p=${page.number+1}">1</a>--%>
 <%--                                <a href="/Admin/Table?p=${page.totalPages-1}">Last</a>--%>
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination justify-content-center">
-                                        <li ng-click="first()" class="page-item text-primary"><a
-                                                href="/user/search?p=0" class="page-link" style="font-size: 14px;"><s:message
-                                                code="lo.mn.first" /></a></li>
-                                        <c:choose>
-                                            <c:when test="${page.number>0}">
-                                                <li ng-click="prev()" class="page-item text-primary"><a
-                                                        href="/Admin/Table?p=0${page.number-1}" class="page-link"
-                                                        style="font-size: 14px;"><s:message code="lo.mn.prev" /></a></li>
-                                            </c:when>
-                                            <c:when test="${page.number>-1}">
-                                                <li ng-click="prev()" class="page-item text-primary"><a
-                                                        onclick="return false;" href="/Admin/Table?p=0${page.number-1}"
-                                                        class="page-link" style="font-size: 14px;"><s:message
-                                                        code="lo.mn.prev" /></a></li>
-                                            </c:when>
-                                        </c:choose>
-                                        <c:choose>
-                                            <c:when test="${page.number<page.totalPages-1}">
-                                                <li ng-click="next()" class="page-item text-primary"><a
-                                                        href="/Admin/Table?p=0${page.number+1}" class="page-link"
-                                                        style="font-size: 14px;"><s:message code="lo.mn.next" /></a></li>
-                                            </c:when>
-                                            <c:when test="${page.number<page.totalPages}">
-                                                <li ng-click="next()" class="page-item text-primary"><a
-                                                        onclick="return false;" href="/Admin/Table?p=0${page.number+1}"
-                                                        class="page-link" style="font-size: 14px;"><s:message
-                                                        code="lo.mn.next" /></a></li>
-                                            </c:when>
-                                        </c:choose>
-                                        <li ng-click="last()" class="page-item text-primary"><a
-                                                href="/Admin/Table?p=0${page.totalPages-1}" class="page-link"
-                                                style="font-size: 14px;"><s:message code="lo.mn.last" /></a></li>
-                                    </ul>
-                                </nav>
+                                 <ul class="pages" style="padding: 0; list-style-type: none; display: flex; justify-content: center;">
+            	<li style='display: inline-block; padding: 5px;'><a href="/Admin/Table?p=0"><i class="fa fa-angle-double-left"></i></a></li>
+	            <c:forEach var="item" begin="1" end="${page.totalPages}" step="1">
+	            	<li style="padding: 5px; display: inline-block;"> <a href="/Admin/Table?p=${item-1}">${item}</a></li>
+				</c:forEach>
+              	<li  style='display: inline-block; padding: 5px;'><a href="/Admin/Table?p=${page.totalPages - 1}"><i class="fa fa-angle-double-right"></i></a></li>
+            </ul>
                                 <%--                        <ul>--%>
                                 <%--                            <li>Số thực thể hiện tại: ${page.numberOfElements}</li>--%>
                                 <%--                            <li>Trang số: ${page.number}</li>--%>
@@ -274,7 +245,7 @@
                                             <%--            </div>--%>
                                             <%--        </div>--%>
                                             <form:button type="submit" class="btn btn-primary">Submit</form:button>
-                                            <form:button type="reset" class="btn btn-primary">Cancel</form:button></form:form>
+                                            <form:button type="submit" formaction="/Admin/Tables/Reset" formmethod="GET" class="btn btn-primary">Cancel</form:button></form:form>
 
                                     </div>
                                 </div>

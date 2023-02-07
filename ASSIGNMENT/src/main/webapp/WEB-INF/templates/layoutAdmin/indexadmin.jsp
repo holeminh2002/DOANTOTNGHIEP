@@ -153,6 +153,12 @@ Coded by www.creative-tim.com
     		document.querySelector("#pills-profile-tab").click()
     	} else if(window.location.pathname.includes("/Admin/Tables/Edit/")) {
     		document.querySelector("#pills-profile-tab").click()
+    	} else if(window.location.pathname.includes("/Admin/Tables/Reset")) {
+    		document.querySelector("#pills-profile-tab").click()
+    	}  else if(window.location.pathname.includes("/Admin/Account/Edit/")) {
+    		document.querySelector("#pills-profile-tab").click()
+    	} else if(window.location.pathname.includes("/Admin/Account/Reset")) {
+    		document.querySelector("#pills-profile-tab").click()
     	}
     } 
 </script>

@@ -75,7 +75,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <c:if test="${user.admin == true}">
-                            		<a class="dropdown-item" href="/Admin/Views">ADMIN</a>
+                            		<a class="dropdown-item" href="/Admin/Views">Manager</a>
                             	</c:if>                          
                                 <a class="dropdown-item" href="/Home/Account/Views/${user.id}">Profile</a>
                                 <a class="dropdown-item" href="/Home/YourCart/${user.id}">Your Order</a>

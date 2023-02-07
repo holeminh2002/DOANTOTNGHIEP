@@ -43,9 +43,16 @@ public class AdminProductController {
         model.addAttribute("page", page)    ;
         return "layoutChangeAdmin/tables";
     }
+    
+    @GetMapping("/Admin/Tables/Reset")
+    public String Reset(Model model, @RequestParam("p") Optional<Integer> p) {
+    	return "forward:/Admin/Table";
+    }
+    
     @RequestMapping("/Admin/Tables/Edit/{id}")
     public String ProductEdit(Model model, @PathVariable("id") Long id,@RequestParam("p") Optional<Integer> p){
         Product item = dao.findById(id);
+        System.out.println(item.getCreateDate());
         model.addAttribute("item", item);
         Pageable pageable = PageRequest.of(p.orElse(0), 3);
         Page<Product> page = dao.findAll(pageable);
@@ -62,11 +69,11 @@ public class AdminProductController {
         }
         return "redirect:/Admin/Table";
     }
-//    @RequestMapping("/Admin/Table/Update")
-//    public String ProductUpdate(Product item){
-//        dao.save(item);
-//        return "redirect:/Admin/Tables/Edit"+ item.getId();
-//    }
+    @RequestMapping("/Admin/Table/Update")
+    public String ProductUpdate(Product item){
+        dao.save(item);
+        return "redirect:/Admin/Tables/Edit"+ item.getId();
+    }
 
     @RequestMapping("/product/search-and-page")
     public String searchAndPage(Model model, @RequestParam("keywords") Optional<String> kw, @RequestParam("p") Optional<Integer> p) {

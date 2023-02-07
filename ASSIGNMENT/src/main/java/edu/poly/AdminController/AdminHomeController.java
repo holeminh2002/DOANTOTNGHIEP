@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -113,6 +114,12 @@ public class AdminHomeController {
         model.addAttribute("page", page)    ;
         return "layoutChangeAdmin/AdminAccount";
     }
+    
+    @GetMapping("/Admin/Account/Reset")
+    public String Reset(Model model, @RequestParam("p") Optional<Integer> p){
+    	return "forward:/Admin/Account";
+    }
+    
     @RequestMapping("/Admin/Account/Save")
     public String Save(@Validated @ModelAttribute("item")  Account item, BindingResult errors , Model model , @RequestParam("image") MultipartFile multipartFile, @RequestParam("p") Optional<Integer> p, RedirectAttributes prams) throws IOException {
         Pageable pageable = PageRequest.of(p.orElse(0), 5);

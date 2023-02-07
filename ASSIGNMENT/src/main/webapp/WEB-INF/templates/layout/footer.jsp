@@ -42,7 +42,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                     <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
 
                         - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-                    <a href="?lang=vi">Tiếng việt</a>
+                    <a href="?lang=vi">Tieng Viet</a>
                     <a href="?lang=en">English</a>
                 </div>
             </div>

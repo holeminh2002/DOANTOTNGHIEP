@@ -173,7 +173,7 @@
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
-                                            <form:label path = "activated">ROLE</form:label>
+                                            <form:label path = "activated">Activated</form:label>
                                             <form:radiobutton path = "activated" value = "True" label = "True" />
                                             <form:radiobutton path = "activated" value = "False" label = "False" />
                                             <form:errors path="activated"/>
@@ -187,6 +187,7 @@
                                                                 <form:radiobutton path = "admin" value = "False" label = "User" />
                                                                 <form:errors path="admin"/>
                                             <form:button type="submit" class="btn btn-primary btn-round ml-4" >Save</form:button>
+                                            <form:button type="submit" class="btn btn-primary btn-round ml-4" formaction="/Admin/Account/Reset" formmethod="GET">Reset</form:button>
                                         </div>
                                         <div class="update ml-auto mr-auto">
 
