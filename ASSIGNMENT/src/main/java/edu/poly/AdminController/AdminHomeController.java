@@ -19,7 +19,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -43,7 +47,7 @@ public class AdminHomeController {
   @Autowired
     ParamService paramService;
     @RequestMapping("/Admin/Views")
-    public String Home(Model model){
+    public String Home(Model model, @RequestParam("year") Optional<Integer> year) throws JsonProcessingException{
         //Hien thi don hang
      Order item = new Order();
      model.addAttribute("item", item);
@@ -63,6 +67,14 @@ public class AdminHomeController {
         //Thong ke Doanh thu theo thang
         Float selectTotalsMonth = orderdao.selectTotalsMonth();
         model.addAttribute("orderListMonth",selectTotalsMonth);
+        Date d = new Date();
+        List<Object[]> bieudodoanhthu = orderdao.selectTotalsMonths(year.orElse(d.getYear() + 1900));
+        ObjectMapper mapper = new ObjectMapper();
+        List<Object[]> years = orderdao.selectAllYears();
+        System.out.println(mapper.writeValueAsString(years));
+        model.addAttribute("years", mapper.writeValueAsString(years));
+        model.addAttribute("bieudothang", mapper.writeValueAsString(bieudodoanhthu));
+        model.addAttribute("year", year.orElse(d.getYear() + 1900));
         //Thong ke ton kho
         List<Report> rep = productDAO.getInventoryByCategory();
         model.addAttribute("rep", rep);

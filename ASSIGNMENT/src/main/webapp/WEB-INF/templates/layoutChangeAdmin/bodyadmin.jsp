@@ -191,6 +191,15 @@
             </div>
         </div>
     </div>
+    <form action="/Admin/Views" method="get" id="form">
+	    <select name="year">
+	    </select>
+    </form>
+ <div>
+  <canvas id="myChart"></canvas>
+</div>
+<br>
+    
     <div class="row">
         <div class="col-md-4">
             <div class="card ">
@@ -238,3 +247,51 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+	
+  const ctx = document.getElementById('myChart');
+const dat = new Date()
+const selectElement = document.querySelector("select[name='year']")
+//JSON.parse('${years}').forEach(i = > {
+//		selectElement.innerHTML += "<option value=" + "'" + i + "'>" + i + "</option>"
+//		if(i == '${year}') selectElement.lastChild.setAttribute("selected", true)
+//})
+	for(let i of JSON.parse('${years}')) {
+		selectElement.innerHTML += "<option value=" + "'" + i + "'>" + i + "</option>"
+		if(i == '${year}') selectElement.lastChild.setAttribute("selected", true)
+	}
+selectElement.addEventListener("change", e => {
+	document.querySelector("#form").submit()
+})
+function getMonthName(monthNumber) {
+  const date = new Date();
+  date.setMonth(monthNumber - 1);
+
+  return date.toLocaleString('en-US', {
+    month: 'long',
+  });
+}
+const data = JSON.parse('${bieudothang}')
+const months = data.map(v => getMonthName(v[1]) )
+const values = data.map(v => v[0])
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [{
+        label: 'monthly revenue diagram',
+        data: values,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false
+        }
+      }
+    }
+  });
+</script>

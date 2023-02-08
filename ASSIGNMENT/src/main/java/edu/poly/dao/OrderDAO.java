@@ -19,5 +19,10 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
 Float selectTotals();
     @Query(value = "Select sum(price)  from orders where  Month(createDate) = Month(GetDate()) ",nativeQuery = true)
     Float selectTotalsMonth();
+    @Query(value = "Select sum(price) as price, MONTH(createDate)  as month, YEAR(createDate) as year from orders group by Month(createDate), YEAR(createDate) having YEAR(createDate) = ?1",nativeQuery = true)
+    List<Object[]> selectTotalsMonths(int number);
+    
+    @Query(value = "	select distinct Year(createDate) as year from orders", nativeQuery = true)
+    List<Object[]> selectAllYears();
 
 }
